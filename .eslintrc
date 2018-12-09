@@ -1,0 +1,29 @@
+{
+  "extends": [
+    "plugin:shopify/esnext",
+    "plugin:shopify/node",
+    "plugin:shopify/polaris",
+    "plugin:shopify/typescript",
+    "plugin:shopify/typescript-prettier"
+  ],
+  "rules": {
+    "id-length": "off",
+    "func-style": "off",
+    "no-undefined": "off",
+    "no-process-env": "off",
+    "no-warning-comments": "off",
+    "no-negated-condition": "off",
+    "consistent-return": "off",
+    "prefer-destructuring": "off",
+    "match-default-export-name": "off",
+    "jsx-use-translation-function": "off",
+    "lines-around-comment": [
+      "error",
+      {
+        "beforeBlockComment": false,
+        "allowBlockStart": false
+      }
+    ],
+    "jsx-a11y/label-has-for": "off"
+  }
+}

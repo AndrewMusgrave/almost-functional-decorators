@@ -1,0 +1,66 @@
+{
+  "name": "almost-functional-decorators",
+  "version": "0.1.0",
+  "description": "A small functional library of decorators",
+  "homepage": "https://github.com/AndrewMusgrave/almost-functional-decorators",
+  "repository": "https://github.com/AndrewMusgrave/almost-functional-decorators",
+  "author": {
+    "name": "Andrew Musgrave",
+    "email": "andrewdmusgrave@gmail.com",
+    "url": "https://github.com/AndrewMusgrave"
+  },
+  "main": "lib/index.js",
+  "module": "lib/index.es.js",
+  "files": [
+    "lib"
+  ],
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "clean": "rimraf lib/types/*.{js,d.ts} lib/*.{js,d.ts}",
+    "prebuild": "yarn run clean",
+    "build": "tsc --emitDeclarationOnly && rollup -c",
+    "lint": "eslint ./src/**/*.ts --max-warnings 0 --format codeframe",
+    "format": "yarn run lint --fix",
+    "ts": "tsc --noEmit",
+    "test": "jest",
+    "test:coverage": "jest --coverage --no-cache",
+    "check": "npm-run-all lint ts test",
+    "prepublish": "in-publish && yarn run build || :"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^23.1.5",
+    "eslint": "^5.3.0",
+    "eslint-plugin-shopify": "^23.1.0",
+    "gen-doc-cli": "^0.2.0",
+    "in-publish": "^2.0.0",
+    "jest": "^23.4.0",
+    "npm-run-all": "^4.0.2",
+    "prettier": "^1.14.0",
+    "rimraf": "^2.6.1",
+    "rollup": "^0.64.1",
+    "rollup-plugin-typescript2": "^0.16.1",
+    "ts-jest": "^23.0.0",
+    "typescript": "^2.5.3"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
+    },
+    "testURL": "http://localhost",
+    "testRegex": "(\\.|/)(test|spec)\\.ts$",
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "json"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.ts"
+    ],
+    "coverageDirectory": "coverage",
+    "coveragePathIgnorePatterns": [
+      "index.*",
+      "types.*"
+    ]
+  }
+}
